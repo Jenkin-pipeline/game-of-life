@@ -11,6 +11,11 @@ pipeline{
               branch : 'jenkin-declarative'
         }
      }
+     stage('java_home'){
+        steps {
+            echo '$JAVA_HOME'
+        }
+     }
      stage('build'){
                steps {
             sh 'mvn build'
