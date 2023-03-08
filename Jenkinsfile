@@ -1,5 +1,8 @@
 pipeline{
   agent{label 'JDK_8'}
+  triggers {
+    cron('H/2 * * * *')
+  }
   parameters {
     choice(name:'MAVEN_GOAL',choices:['package','install','clean'],description:'Maven Goal')
   }
