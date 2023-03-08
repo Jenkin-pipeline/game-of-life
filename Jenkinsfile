@@ -8,17 +8,19 @@ pipeline{
                 branch : 'jenkin-declarative'
             }
         }
-        stage('build'){
-             tools {
+        stage('package'){  
+            tools {
                 jdk 'JDK_8'
-            }
-                steps {
-                sh 'mvn build'
-            }
-        }
-        stage('package'){      
+            }    
             steps {
                 sh 'mvn package'
+            }
+        }
+        stage('post build') {
+            steps {
+                archiveArtifacts artifacts: '**/target/gameoflife.war',
+                                 onlyIfSuccessful: true
+                junit testResults: '**/surefire-reports/TEST-*.xml'
             }
         }
 
