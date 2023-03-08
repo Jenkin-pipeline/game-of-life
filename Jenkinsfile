@@ -16,7 +16,7 @@ pipeline{
                 jdk 'JDK_8'
             }    
             steps {
-                sh "mvn ${parameters.MAVEN_GOAL}"
+                sh "mvn ${params.MAVEN_GOAL}"
             }
         }
         stage('post build') {
