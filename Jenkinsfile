@@ -1,16 +1,11 @@
 pipeline{
-  agent{label 'JDK_17'}
+  agent{label 'JDK_8'}
      stages{
         stage('vcm')
         {
             steps {
                 git url :'https://github.com/Jenkin-pipeline/game-of-life.git',
                 branch : 'jenkin-declarative'
-            }
-        }
-        stage('java_home'){
-            steps {
-                echo '$JAVA_HOME'
             }
         }
         stage('build'){
