@@ -1,7 +1,7 @@
 pipeline{
   agent{label 'JDK_8'}
   parameters {
-    choice(name:'MAVEN_GOAL',choices['package','install','clean'],description:'Maven Goal')
+    choice(name:'MAVEN_GOAL',choices:['package','install','clean'],description:'Maven Goal')
   }
      stages{
         stage('vcm')
